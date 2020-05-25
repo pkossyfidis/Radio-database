@@ -1,82 +1,82 @@
-CREATE TABLE ейполпг (
+CREATE TABLE н∙н н═н÷н°н═н≈ (
   ID INTEGER  NOT NULL  ,
-  гЛЕЯОЛГМИА DATE    ,
-  ыЯА TIME    ,
-  дИАЯЙЕИА INTEGER    ,
-  хЕЛА VARCHAR(255)      ,
+  н≈н╪н╣о│н©н╪н╥н╫н╧н╠ DATE    ,
+  н╘о│н╠ TIME    ,
+  н■н╧н╠о│н╨н╣н╧н╠ INTEGER    ,
+  н≤н╣н╪н╠ VARCHAR(255)      ,
 PRIMARY KEY(ID));
 
 
 
-CREATE TABLE тяацоудиа (
+CREATE TABLE н╓н║н▒н⌠н÷н╔н■н≥н▒ (
   ID INTEGER  NOT NULL  ,
-  тИТКОР VARCHAR(50)    ,
-  еИДОР VARCHAR(45)      ,
+  н╓н╧о└н╩н©о┌ VARCHAR(50)    ,
+  н∙н╧н╢н©о┌ VARCHAR(45)      ,
 PRIMARY KEY(ID));
 
 
 
-CREATE TABLE айяоатгс (
+CREATE TABLE н▒н н║н÷н▒н╓н≈нё (
   ID INTEGER  NOT NULL  ,
-  оМОЛА VARCHAR(45)    ,
-  еПИХЕТО VARCHAR(45)      ,
+  н÷н╫н©н╪н╠ VARCHAR(45)    ,
+  н∙о─н╧н╦н╣о└н© VARCHAR(45)      ,
 PRIMARY KEY(ID));
 
 
 
-CREATE TABLE киста (
-  тяацоудиа_ID INTEGER  NOT NULL  ,
-  ейполпг_ID INTEGER  NOT NULL    ,
-PRIMARY KEY(тяацоудиа_ID, ейполпг_ID)    ,
-  FOREIGN KEY(тяацоудиа_ID)
-    REFERENCES тяацоудиа(ID)
+CREATE TABLE н⌡н≥нён╓н▒ (
+  н╓н║н▒н⌠н÷н╔н■н≥н▒_ID INTEGER  NOT NULL  ,
+  н∙н н═н÷н°н═н≈_ID INTEGER  NOT NULL    ,
+PRIMARY KEY(ц■ц▒ц│ц┐ц▐ц∙ц└ц┴ц│_ID, ц┘ц┼ц░ц▐ц▄ц░ц┤_ID)    ,
+  FOREIGN KEY(ц■ц▒ц│ц┐ц▐ц∙ц└ц┴ц│_ID)
+    REFERENCES ц■ц▒ц│ц┐ц▐ц∙ц└ц┴ц│(ID)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION,
-  FOREIGN KEY(ейполпг_ID)
-    REFERENCES ейполпг(ID)
+  FOREIGN KEY(ц┘ц┼ц░ц▐ц▄ц░ц┤_ID)
+    REFERENCES ц┘ц┼ц░ц▐ц▄ц░ц┤(ID)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
 
 
-CREATE INDEX тяацоудиа_has_ейполпг_FKIndex1 ON киста (тяацоудиа_ID);
-CREATE INDEX тяацоудиа_has_ейполпг_FKIndex2 ON киста (ейполпг_ID);
+CREATE INDEX ц■ц▒ц│ц┐ц▐ц∙ц└ц┴ц│_has_ц┘ц┼ц░ц▐ц▄ц░ц┤_FKIndex1 ON ц▀ц┴ц⌠ц■ц│ (ц■ц▒ц│ц┐ц▐ц∙ц└ц┴ц│_ID);
+CREATE INDEX ц■ц▒ц│ц┐ц▐ц∙ц└ц┴ц│_has_ц┘ц┼ц░ц▐ц▄ц░ц┤_FKIndex2 ON ц▀ц┴ц⌠ц■ц│ (ц┘ц┼ц░ц▐ц▄ц░ц┤_ID);
 
 
 
-CREATE TABLE еяытгсеис (
-  ейполпг_ID INTEGER  NOT NULL  ,
-  айяоатгс_ID INTEGER  NOT NULL  ,
-  йЫДИЙОР INTEGER(3)    ,
-  йЕИЛЕМО VARCHAR      ,
-PRIMARY KEY(ейполпг_ID, айяоатгс_ID)    ,
-  FOREIGN KEY(ейполпг_ID)
-    REFERENCES ейполпг(ID)
+CREATE TABLE ц┘ц▒ц≥ц■ц┤ц⌠ц┘ц┴ц⌠ (
+  ц┘ц┼ц░ц▐ц▄ц░ц┤_ID INTEGER  NOT NULL  ,
+  ц│ц┼ц▒ц▐ц│ц■ц┤ц⌠_ID INTEGER  NOT NULL  ,
+  ц┼ц╧ц╓ц╘ц╙ц╞ц╡ INTEGER(3)    ,
+  ц┼ц╔ц╘ц╛ц╔ц╜ц╞ VARCHAR      ,
+PRIMARY KEY(ц┘ц┼ц░ц▐ц▄ц░ц┤_ID, ц│ц┼ц▒ц▐ц│ц■ц┤ц⌠_ID)    ,
+  FOREIGN KEY(ц┘ц┼ц░ц▐ц▄ц░ц┤_ID)
+    REFERENCES ц┘ц┼ц░ц▐ц▄ц░ц┤(ID)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION,
-  FOREIGN KEY(айяоатгс_ID)
-    REFERENCES айяоатгс(ID)
+  FOREIGN KEY(ц│ц┼ц▒ц▐ц│ц■ц┤ц⌠_ID)
+    REFERENCES ц│ц┼ц▒ц▐ц│ц■ц┤ц⌠(ID)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
 
 
-CREATE INDEX ейполпг_has_айяоатгс_FKIndex1 ON еяытгсеис (ейполпг_ID);
-CREATE INDEX ейполпг_has_айяоатгс_FKIndex2 ON еяытгсеис (айяоатгс_ID);
+CREATE INDEX ц┘ц┼ц░ц▐ц▄ц░ц┤_has_ц│ц┼ц▒ц▐ц│ц■ц┤ц⌠_FKIndex1 ON ц┘ц▒ц≥ц■ц┤ц⌠ц┘ц┴ц⌠ (ц┘ц┼ц░ц▐ц▄ц░ц┤_ID);
+CREATE INDEX ц┘ц┼ц░ц▐ц▄ц░ц┤_has_ц│ц┼ц▒ц▐ц│ц■ц┤ц⌠_FKIndex2 ON ц┘ц▒ц≥ц■ц┤ц⌠ц┘ц┴ц⌠ (ц│ц┼ц▒ц▐ц│ц■ц┤ц⌠_ID);
 
 
 
-CREATE TABLE апамтгсеис (
+CREATE TABLE ц│ц░ц│ц█ц■ц┤ц⌠ц┘ц┴ц⌠ (
   ID INTEGER  NOT NULL  ,
-  еяытгсеис_ейполпг_ID INTEGER  NOT NULL  ,
-  еяытгсеис_айяоатгс_ID INTEGER  NOT NULL  ,
+  ц┘ц▒ц≥ц■ц┤ц⌠ц┘ц┴ц⌠_ц┘ц┼ц░ц▐ц▄ц░ц┤_ID INTEGER  NOT NULL  ,
+  ц┘ц▒ц≥ц■ц┤ц⌠ц┘ц┴ц⌠_ц│ц┼ц▒ц▐ц│ц■ц┤ц⌠_ID INTEGER  NOT NULL  ,
   Petros VARCHAR    ,
   Apostolos VARCHAR      ,
 PRIMARY KEY(ID)  ,
-  FOREIGN KEY(еяытгсеис_ейполпг_ID, еяытгсеис_айяоатгс_ID)
-    REFERENCES еяытгсеис(ейполпг_ID, айяоатгс_ID)
+  FOREIGN KEY(ц┘ц▒ц≥ц■ц┤ц⌠ц┘ц┴ц⌠_ц┘ц┼ц░ц▐ц▄ц░ц┤_ID, ц┘ц▒ц≥ц■ц┤ц⌠ц┘ц┴ц⌠_ц│ц┼ц▒ц▐ц│ц■ц┤ц⌠_ID)
+    REFERENCES ц┘ц▒ц≥ц■ц┤ц⌠ц┘ц┴ц⌠(ц┘ц┼ц░ц▐ц▄ц░ц┤_ID, ц│ц┼ц▒ц▐ц│ц■ц┤ц⌠_ID)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
 
 
-CREATE INDEX апамтгсеис_FKIndex1 ON апамтгсеис (еяытгсеис_ейполпг_ID, еяытгсеис_айяоатгс_ID);
+CREATE INDEX ц│ц░ц│ц█ц■ц┤ц⌠ц┘ц┴ц⌠_FKIndex1 ON ц│ц░ц│ц█ц■ц┤ц⌠ц┘ц┴ц⌠ (ц┘ц▒ц≥ц■ц┤ц⌠ц┘ц┴ц⌠_ц┘ц┼ц░ц▐ц▄ц░ц┤_ID, ц┘ц▒ц≥ц■ц┤ц⌠ц┘ц┴ц⌠_ц│ц┼ц▒ц▐ц│ц■ц┤ц⌠_ID);
 
 
