@@ -27,56 +27,56 @@ PRIMARY KEY(ID));
 CREATE TABLE ΛΙΣΤΑ (
   ΤΡΑΓΟΥΔΙΑ_ID INTEGER  NOT NULL  ,
   ΕΚΠΟΜΠΗ_ID INTEGER  NOT NULL    ,
-PRIMARY KEY(ÔÑÁÃÏÕÄÉÁ_ID, ÅÊÐÏÌÐÇ_ID)    ,
-  FOREIGN KEY(ÔÑÁÃÏÕÄÉÁ_ID)
-    REFERENCES ÔÑÁÃÏÕÄÉÁ(ID)
+PRIMARY KEY(ΤΡΑΓΟΥΔΙΑ_ID,ΕΚΠΟΜΠΗ_ID)    ,
+  FOREIGN KEY(ΤΡΑΓΟΥΔΙΑ_ID)
+    REFERENCES ΤΡΑΓΟΥΔΙΑ(ID)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION,
-  FOREIGN KEY(ÅÊÐÏÌÐÇ_ID)
-    REFERENCES ÅÊÐÏÌÐÇ(ID)
+  FOREIGN KEY(ΕΚΠΟΜΠΗ_ID)
+    REFERENCES ΕΚΠΟΜΠΗ(ID)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
 
 
-CREATE INDEX ÔÑÁÃÏÕÄÉÁ_has_ÅÊÐÏÌÐÇ_FKIndex1 ON ËÉÓÔÁ (ÔÑÁÃÏÕÄÉÁ_ID);
-CREATE INDEX ÔÑÁÃÏÕÄÉÁ_has_ÅÊÐÏÌÐÇ_FKIndex2 ON ËÉÓÔÁ (ÅÊÐÏÌÐÇ_ID);
+CREATE INDEX ΤΡΑΓΟΥΔΙΑ_has_ΕΚΠΟΜΠΗ_FKIndex1 ON ËÉÓÔÁ (ΤΡΑΓΟΥΔΙΑ_ID);
+CREATE INDEX ΤΡΑΓΟΥΔΙΑ_has_ΕΚΠΟΜΠΗ_FKIndex2 ON ËÉÓÔÁ (ΕΚΠΟΜΠΗ_ID);
 
 
 
-CREATE TABLE ÅÑÙÔÇÓÅÉÓ (
-  ÅÊÐÏÌÐÇ_ID INTEGER  NOT NULL  ,
-  ÁÊÑÏÁÔÇÓ_ID INTEGER  NOT NULL  ,
-  Êùäéêïò INTEGER(3)    ,
-  Êåéìåíï VARCHAR      ,
-PRIMARY KEY(ÅÊÐÏÌÐÇ_ID, ÁÊÑÏÁÔÇÓ_ID)    ,
-  FOREIGN KEY(ÅÊÐÏÌÐÇ_ID)
-    REFERENCES ÅÊÐÏÌÐÇ(ID)
+CREATE TABLE ΕΡΩΤΗΣΕΙΣ (
+  ΕΚΠΟΜΠΗ_ID INTEGER  NOT NULL  ,
+  ΑΚΡΟΑΤΗΣ_ID INTEGER  NOT NULL  ,
+  Κωδικος INTEGER(3)    ,
+  Κειμενο VARCHAR      ,
+PRIMARY KEY(ΕΚΠΟΜΠΗ_ID, ΑΚΡΟΑΤΗΣ_ID)    ,
+  FOREIGN KEY(ΕΚΠΟΜΠΗ_ID)
+    REFERENCES ΕΚΠΟΜΠΗ(ID)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION,
-  FOREIGN KEY(ÁÊÑÏÁÔÇÓ_ID)
-    REFERENCES ÁÊÑÏÁÔÇÓ(ID)
+  FOREIGN KEY(ΑΚΡΟΑΤΗΣ_ID)
+    REFERENCES ΑΚΡΟΑΤΗΣ(ID)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
 
 
-CREATE INDEX ÅÊÐÏÌÐÇ_has_ÁÊÑÏÁÔÇÓ_FKIndex1 ON ÅÑÙÔÇÓÅÉÓ (ÅÊÐÏÌÐÇ_ID);
-CREATE INDEX ÅÊÐÏÌÐÇ_has_ÁÊÑÏÁÔÇÓ_FKIndex2 ON ÅÑÙÔÇÓÅÉÓ (ÁÊÑÏÁÔÇÓ_ID);
+CREATE INDEX ΕΚΠΟΜΠΗ_has_ΑΚΡΟΑΤΗΣ_FKIndex1 ON ΕΡΩΤΗΣΕΙΣ (ΕΚΠΟΜΠΗ_ID);
+CREATE INDEX ΕΚΠΟΜΠΗ_has_ΑΚΡΟΑΤΗΣ_FKIndex2 ON ΕΡΩΤΗΣΕΙΣ ΑΚΡΟΑΤΗΣ_ID);
 
 
 
-CREATE TABLE ÁÐÁÍÔÇÓÅÉÓ (
+CREATE TABLE ΑΠΑΝΤΗΣΕΙΣ (
   ID INTEGER  NOT NULL  ,
-  ÅÑÙÔÇÓÅÉÓ_ÅÊÐÏÌÐÇ_ID INTEGER  NOT NULL  ,
-  ÅÑÙÔÇÓÅÉÓ_ÁÊÑÏÁÔÇÓ_ID INTEGER  NOT NULL  ,
+  ΕΡΩΤΗΣΕΙΣ_ΕΚΠΟΜΠΗ_ID INTEGER  NOT NULL  ,
+  ΕΡΩΤΗΣΕΙΣ_ΑΚΡΟΑΤΗΣ_ID INTEGER  NOT NULL  ,
   Petros VARCHAR    ,
   Apostolos VARCHAR      ,
 PRIMARY KEY(ID)  ,
-  FOREIGN KEY(ÅÑÙÔÇÓÅÉÓ_ÅÊÐÏÌÐÇ_ID, ÅÑÙÔÇÓÅÉÓ_ÁÊÑÏÁÔÇÓ_ID)
-    REFERENCES ÅÑÙÔÇÓÅÉÓ(ÅÊÐÏÌÐÇ_ID, ÁÊÑÏÁÔÇÓ_ID)
+  FOREIGN KEY(ΕΡΩΤΗΣΕΙΣ_ΕΚΠΟΜΠΗ_ID, ΕΡΩΤΗΣΕΙΣ_ΑΚΡΟΑΤΗΣ_ID)
+    REFERENCES ΕΡΩΤΗΣΕΙΣ(ΕΚΠΟΜΠΗ_ID, ΑΚΡΟΑΤΗΣ_ID)
       ON DELETE NO ACTION
       ON UPDATE NO ACTION);
 
 
-CREATE INDEX ÁÐÁÍÔÇÓÅÉÓ_FKIndex1 ON ÁÐÁÍÔÇÓÅÉÓ (ÅÑÙÔÇÓÅÉÓ_ÅÊÐÏÌÐÇ_ID, ÅÑÙÔÇÓÅÉÓ_ÁÊÑÏÁÔÇÓ_ID);
+CREATE INDEX ΑΠΑΝΤΗΣΕΙΣ_FKIndex1 ON ΑΠΑΝΤΗΣΕΙΣ (ΕΡΩΤΗΣΕΙΣ_ΕΚΠΟΜΠΗ_ID, ΕΡΩΤΗΣΕΙΣ_ΑΚΡΟΑΤΗΣ_ID);
 
 
